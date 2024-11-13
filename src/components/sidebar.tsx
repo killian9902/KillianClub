@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
   const navigate = useNavigate();
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -13,45 +13,59 @@ const Sidebar: React.FC = () => {
     <nav
       style={{
         width: isCollapsed ? '60px' : '200px',
-        height: '80vh',
-        backgroundColor: '#f4f4f4',
-        transition: 'width 0.3s',
       }}
     >
       {/* Collapse/Expand Button */}
-      <button onClick={toggleSidebar} style={{ marginBottom: '20px' }}>
-        {isCollapsed ? '>' : '<'}
+      <button
+        onClick={toggleSidebar}
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: isCollapsed ? '-15px' : '-15px',
+          transform: 'translateY(-50%)',
+          backgroundColor: '#a99985',
+          borderRadius: '50%',
+          width: '30px',
+          height: '30px',
+          cursor: 'pointer',
+          border: 'none',
+          color: '#fff',
+        }}
+      >
+        {isCollapsed ? '☰' : '×'}
       </button>
+
+
+
 
       {/* Navigation Items */}
       <div>
-        <button
-          onClick={() => navigate('/')}
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            fontWeight: window.location.pathname === '/' ? 'bold' : 'normal',
-          }}
-        >
-          <span role="img" aria-label="Home">🏠</span>
+        <button onClick={() => navigate('/')} style={buttonStyle(isCollapsed)}>
+          <span role="img" aria-label="Home">📊</span>
           {!isCollapsed && <span style={{ marginLeft: '10px' }}>Home</span>}
         </button>
-        <button
-          onClick={() => navigate('/Networking')}
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            fontWeight: window.location.pathname === '/Networking' ? 'bold' : 'normal',
-          }}
-        >
-          <span role="img" aria-label="Networking">🌐</span>
+        <button onClick={() => navigate('/Networking')} style={buttonStyle(isCollapsed)}>
+          <span role="img" aria-label="Networking">💼</span>
           {!isCollapsed && <span style={{ marginLeft: '10px' }}>Networking</span>}
         </button>
+
       </div>
     </nav>
   );
 };
+
+const buttonStyle = (isCollapsed: boolean) => ({
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    padding: '10px',
+    backgroundColor: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    fontWeight: 'normal',
+    textAlign: 'left' as const,
+    color: '#333',
+    marginBottom: '10px',
+  });
 
 export default Sidebar;
