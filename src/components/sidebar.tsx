@@ -40,11 +40,11 @@ const Sidebar: React.FC = () => {
 
       {/* Navigation Items */}
       <div>
-        <button onClick={() => navigate('/')} style={buttonStyle(isCollapsed)}>
+        <button onClick={() => navigate('/')} style={buttonStyle()}>
           <span role="img" aria-label="Home">📊</span>
           {!isCollapsed && <span style={{ marginLeft: '10px' }}>Home</span>}
         </button>
-        <button onClick={() => navigate('/Networking')} style={buttonStyle(isCollapsed)}>
+        <button onClick={() => navigate('/Networking')} style={buttonStyle()}>
           <span role="img" aria-label="Networking">💼</span>
           {!isCollapsed && <span style={{ marginLeft: '10px' }}>Networking</span>}
         </button>
@@ -54,7 +54,7 @@ const Sidebar: React.FC = () => {
   );
 };
 
-const buttonStyle = (isCollapsed: boolean) => ({
+const buttonStyle = () => ({
     display: 'flex',
     alignItems: 'center',
     width: '100%',
