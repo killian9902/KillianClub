@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/index.module.css'
 import HomeIcon from '../assets/icons/home.svg';
 import NetworkingIcon from '../assets/icons/networking.svg';
-import MenuBarIcon from '../assets/icons/menu-bar.svg';
-import CrossIcon from '../assets/icons/cross.svg';
+import MenuBarIcon from '../assets/icons/icons8-menu.svg';
+import CrossIcon from '../assets/icons/icons8-close.svg';
 
 
 
