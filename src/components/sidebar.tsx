@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/index.module.css'
 import HomeIcon from '../assets/icons/home.svg';
 import NetworkingIcon from '../assets/icons/networking.svg';
+import MenuBarIcon from '../assets/icons/menu-bar.svg';
+import CrossIcon from '../assets/icons/cross.svg';
 
 
 
@@ -26,7 +28,7 @@ const Sidebar: React.FC = () => {
         style={{
           position: 'absolute',
           top: '20px',
-          right: isCollapsed ? '-15px' : '-15px',
+          right: '-15px',
           transform: 'translateY(-50%)',
           backgroundColor: '#a99985',
           borderRadius: '50%',
@@ -34,10 +36,21 @@ const Sidebar: React.FC = () => {
           height: '30px',
           cursor: 'pointer',
           border: 'none',
-          color: '#fff',
-        }}
+          display: 'flex', // Center the icon
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0', // Remove default padding
+       }}
       >
-        {isCollapsed ? '☰' : '×'}
+        <img
+            src={isCollapsed ? MenuBarIcon : CrossIcon}
+            alt={isCollapsed ? 'Menu Bar Icon' : 'Cross Icon'}
+            style={{
+              width: '15px', // Adjust icon size here
+              height: '15px',
+              objectFit: 'contain',
+            }}
+        />
       </button>
 
 
