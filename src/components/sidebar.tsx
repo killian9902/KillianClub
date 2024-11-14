@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from '../styles/index.module.css'
+import HomeIcon from '../assets/icons/home.svg';
+import NetworkingIcon from '../assets/icons/networking.svg';
+
+
 
 const Sidebar: React.FC = () => {
   const navigate = useNavigate();
@@ -12,7 +17,7 @@ const Sidebar: React.FC = () => {
   return (
     <nav
       style={{
-        width: isCollapsed ? '60px' : '200px',
+        width: isCollapsed ? '60px' : '150px',
       }}
     >
       {/* Collapse/Expand Button */}
@@ -40,32 +45,21 @@ const Sidebar: React.FC = () => {
 
       {/* Navigation Items */}
       <div>
-        <button onClick={() => navigate('/')} style={buttonStyle()}>
-          <span role="img" aria-label="Home">📊</span>
-          {!isCollapsed && <span style={{ marginLeft: '10px' }}>Home</span>}
-        </button>
-        <button onClick={() => navigate('/Networking')} style={buttonStyle()}>
-          <span role="img" aria-label="Networking">💼</span>
-          {!isCollapsed && <span style={{ marginLeft: '10px' }}>Networking</span>}
-        </button>
+      <button onClick={() => navigate('/')} className={styles.buttonClass}>
+        <img src={HomeIcon} alt="Home" aria-label="Home" style={{ width: '20px', height: '20px' }} />
+        {!isCollapsed && <span style={{ marginLeft: '10px' }}>Home</span>}
+      </button>
+
+      <button onClick={() => navigate('/Networking')} className={styles.buttonClass}>
+        <img src={NetworkingIcon} alt="Networking" aria-label="Networking" style={{ width: '20px', height: '20px' }} />
+        {!isCollapsed && <span style={{ marginLeft: '10px' }}>Networking</span>}
+      </button>
 
       </div>
     </nav>
   );
 };
 
-const buttonStyle = () => ({
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    padding: '10px',
-    backgroundColor: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    fontWeight: 'normal',
-    textAlign: 'left' as const,
-    color: '#333',
-    marginBottom: '10px',
-  });
+
 
 export default Sidebar;
