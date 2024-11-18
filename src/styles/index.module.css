@@ -26,19 +26,15 @@ body {
 }
 
 h1 {
-  font-size: 4dvw;
+  font-size: clamp(1.5rem, 4vw, 3rem);
   line-height: 1.1;
 }
 
-p {
-  font-size: 1vw;
+p, ul {
+  font-size: clamp(0.6rem, 1.5vw, 1rem);
   line-height: 1.5;
 }
 
-ul {
-  font-size: 1.5vw;
-  line-height: 1.5;
-}
 
 nav {
   height: 98dvh;
