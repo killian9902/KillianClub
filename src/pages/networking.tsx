@@ -21,7 +21,7 @@ const Networking: React.FC = () => {
   return (
     <div>
       <h1>Networking</h1>
-      <p>{message}</p>
+      <p>{message}!</p>
     </div>
   );
 };
