@@ -22,7 +22,8 @@ const Networking: React.FC = () => {
   return (
     <div>
       <h1>Networking</h1>
-      <p>{message}!</p>
+      <p>The message below come from an Express server running on AWS EKS, with an ALB and WAF firewall so only <strong>killians.club</strong> can access the backed service.</p>
+      <p>{message}</p>
     </div>
   );
 };
