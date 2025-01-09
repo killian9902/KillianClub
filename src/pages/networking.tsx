@@ -8,15 +8,16 @@ const Networking: React.FC = () => {
 
   useEffect(() => {
     // Make an Axios GET request
-    axios.get<string>('https://api.killians.club') // Replace with your server URL
+    axios.get<{ message: string }>('https://api.killians.club') // Specify the expected response type
       .then((response) => {
-        setMessage(response.data); // Update the state with the response
+        setMessage(response.data.message); // Access the 'message' field from the JSON
       })
       .catch((error) => {
         console.error('Error:', error);
         setMessage('Error fetching data');
       });
-  }, []); // Empty dependency array ensures the call runs only once
+  }, []);
+  
 
   return (
     <div>
