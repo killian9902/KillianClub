@@ -8,7 +8,7 @@ const Networking: React.FC = () => {
 
   useEffect(() => {
     // Make an Axios GET request
-    axios.get<string>('http://api.killians.club') // Replace with your server URL
+    axios.get<string>('https://api.killians.club') // Replace with your server URL
       .then((response) => {
         setMessage(response.data); // Update the state with the response
       })
